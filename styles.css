@@ -1,20 +1,20 @@
 @font-face {
   font-family: "Montserrat";
-  src: url("assets/fonts/Montserrat-Light.ttf") format("truetype");
+  src: url("assets/fonts/Montserrat-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  src: url("assets/fonts/Montserrat-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("assets/fonts/Montserrat-Bold.ttf") format("truetype");
+  src: url("assets/fonts/Montserrat-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -24,6 +24,7 @@
   --navy: #1f2b4e;
   --navy-deep: #141d36;
   --navy-soft: #2a3865;
+  --logo-bg: #222d47;
   --gold: #c49a4c;
   --gold-soft: #d8b469;
   --gold-muted: #a07f37;
@@ -108,15 +109,13 @@ a:hover { color: var(--gold); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--navy);
+  background: var(--logo-bg);
   border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.is-scrolled {
-  background: rgba(20, 29, 54, 0.92);
-  backdrop-filter: saturate(140%) blur(10px);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  background: var(--logo-bg);
   border-bottom: 1px solid rgba(196, 154, 76, 0.2);
   box-shadow: 0 10px 30px -22px rgba(0, 0, 0, 0.6);
 }
@@ -212,7 +211,11 @@ a:hover { color: var(--gold); }
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url("assets/images/hero-hk.jpg") center center / cover no-repeat;
+  background: image-set(
+      url("assets/images/hero-hk.webp") type("image/webp"),
+      url("assets/images/hero-hk.jpg") type("image/jpeg")
+    ) center center / cover no-repeat;
+  background-color: var(--navy-deep);
   transform: scale(1.04);
   animation: heroDrift 28s ease-in-out infinite alternate;
 }
@@ -394,10 +397,10 @@ section { padding: clamp(5rem, 10vw, 8rem) 0; }
     linear-gradient(135deg, rgba(20, 29, 54, 0.4) 0%, rgba(13, 20, 39, 0.25) 100%);
 }
 
-.card--1 .card-bg { background-image: url("assets/images/card-1.jpg"); }
-.card--2 .card-bg { background-image: url("assets/images/card-2.jpg"); }
-.card--3 .card-bg { background-image: url("assets/images/card-3.jpg"); }
-.card--4 .card-bg { background-image: url("assets/images/card-4.jpg"); }
+.card--1 .card-bg { background-image: image-set(url("assets/images/card-1.webp") type("image/webp"), url("assets/images/card-1.jpg") type("image/jpeg")); }
+.card--2 .card-bg { background-image: image-set(url("assets/images/card-2.webp") type("image/webp"), url("assets/images/card-2.jpg") type("image/jpeg")); }
+.card--3 .card-bg { background-image: image-set(url("assets/images/card-3.webp") type("image/webp"), url("assets/images/card-3.jpg") type("image/jpeg")); }
+.card--4 .card-bg { background-image: image-set(url("assets/images/card-4.webp") type("image/webp"), url("assets/images/card-4.jpg") type("image/jpeg")); }
 
 .card-face {
   position: relative;
